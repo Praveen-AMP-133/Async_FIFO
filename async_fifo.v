@@ -20,16 +20,16 @@ module async_fifo #(
 );
   //--------------Local memory and registers-----------------
   reg [WIDTH-1:0] memory [0:DEPTH-1];  //Memory of the async fifo
-  reg [$clog2(DEPTH)-1:0]  wr_ptr;     //Write pointer 
-  reg [$clog2(DEPTH)-1:0]  rd_ptr;     //Read pointer
+  reg [$clog2(DEPTH):0]  wr_ptr;     //Write pointer 
+  reg [$clog2(DEPTH):0]  rd_ptr;     //Read pointer
   
-  wire [$clog2(DEPTH)-1:0] gray_wr_ptr; //Gray write pointer
-  wire [$clog2(DEPTH)-1:0] gray_rd_ptr; //Gray read pointer
+  wire [$clog2(DEPTH):0] gray_wr_ptr; //Gray write pointer
+  wire [$clog2(DEPTH):0] gray_rd_ptr; //Gray read pointer
   
-  reg [$clog2(DEPTH)-1:0]  wr_sync1;    //Write synchronizer1
-  reg [$clog2(DEPTH)-1:0]  wr_sync2;    //Write synchronizer2
-  reg [$clog2(DEPTH)-1:0]  rd_sync1;    //Read synchronizer1
-  reg [$clog2(DEPTH)-1:0]  rd_sync2;    //read synchronizer2
+  reg [$clog2(DEPTH):0]  wr_sync1;    //Write synchronizer1
+  reg [$clog2(DEPTH):0]  wr_sync2;    //Write synchronizer2
+  reg [$clog2(DEPTH):0]  rd_sync1;    //Read synchronizer1
+  reg [$clog2(DEPTH):0]  rd_sync2;    //read synchronizer2
   
   //write logic code
   always@(posedge clk_a or negedge rst_a) begin
